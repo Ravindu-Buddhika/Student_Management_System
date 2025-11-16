@@ -28,4 +28,9 @@ public class StudentController {
     public Student getByID(@PathVariable String id){
         return service.getByID(id);
     }
+
+    @DeleteMapping("/del/{id}")
+    public void delete(@PathVariable String id){
+        service.delete(id);
+    }
 }
