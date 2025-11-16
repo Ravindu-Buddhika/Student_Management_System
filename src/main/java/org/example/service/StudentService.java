@@ -30,4 +30,17 @@ public class StudentService {
         }
         return all;
     }
+
+    public void add(Student student){
+        repository.save(
+                new StudentEntity(
+                        student.getId(),
+                        student.getName(),
+                        student.getContactNumber(),
+                        student.getEmail(),
+                        student.getDate(),
+                        student.getAddress()
+                )
+        );
+    }
 }
