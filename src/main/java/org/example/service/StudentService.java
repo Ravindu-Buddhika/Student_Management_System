@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -42,5 +43,17 @@ public class StudentService {
                         student.getAddress()
                 )
         );
+    }
+    public Student getByID(String id){
+        Optional<StudentEntity> studentEntity=repository.findById(id);
+        Student student= new Student(
+                studentEntity.get().getId(),
+                studentEntity.get().getName(),
+                studentEntity.get().getContactNumber(),
+                studentEntity.get().getEmail(),
+                studentEntity.get().getDate(),
+                studentEntity.get().getAddress()
+        );
+        return student;
     }
 }

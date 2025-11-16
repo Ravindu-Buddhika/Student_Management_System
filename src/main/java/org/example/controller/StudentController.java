@@ -23,4 +23,14 @@ public class StudentController {
     public void add(@RequestBody Student student){
         service.add(student);
     }
+
+    @GetMapping("/{id}")
+    public Student getByID(@PathVariable String id){
+        return service.getByID(id);
+    }
+
+//    @GetMapping("/{student}")
+//    public String getStudent(@PathVariable String student){
+//        return student;
+//    }
 }
